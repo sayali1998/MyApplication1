@@ -19,11 +19,12 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -87,18 +88,31 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.assignment){
             fragment=new Assignment();
+            toolbar.setTitle("Assignments");
 
         } else if (id == R.id.techfeed){
+            fragment=new Techfeed();
+            toolbar.setTitle("Tech Feed");
 
         } else if (id == R.id.timetable){
+            fragment=new Timetable();
+            toolbar.setTitle("Timetable");
 
         } else if (id == R.id.defaulters){
+            fragment=new Defaulter();
+            toolbar.setTitle("Defaulters");
 
         } else if (id == R.id.referencebooks){
+            fragment=new Referencebooks();
+            toolbar.setTitle("Reference Books");
 
         } else if (id == R.id.poll){
+            fragment=new Poll();
+            toolbar.setTitle("Poll");
 
         }else if(id== R.id.calender){
+            fragment=new Calendar();
+            toolbar.setTitle("Calendar");
 
         }
 
