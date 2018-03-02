@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/assignment"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Assignments" />
+        <item
+            android:id="@+id/techfeed"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Tech Feed" />
+        <item
+            android:id="@+id/timetable"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Timetable" />
+        <item
+            android:id="@+id/defaulters"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Defaulter List" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/referencebooks"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Reference Books" />
+            <item
+                android:id="@+id/poll"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Poll" />
+            <item
+                android:id="@+id/calender"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Calendar" />
+        </menu>
+    </item>
+
+</menu>
