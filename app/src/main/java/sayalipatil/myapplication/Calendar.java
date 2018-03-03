@@ -9,10 +9,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.support.v7.widget.CardView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class Calendar extends Fragment {
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,5 +28,18 @@ public class Calendar extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final CardView reminder=(CardView) getView().findViewById(R.id.reminder);
+        reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout reminder=(LinearLayout) getView().findViewById(R.id.remainder_expandable);
+                if(getView().getVisibility()==View.GONE){
+                    reminder.setVisibility(View.VISIBLE);
+                }
+                else {
+                    reminder.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 }
