@@ -28,12 +28,12 @@ public class Calendar extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final CardView reminder=(CardView) getView().findViewById(R.id.reminder);
-        reminder.setOnClickListener(new View.OnClickListener() {
+        final CardView reminderCard=(CardView) getView().findViewById(R.id.reminder);
+        reminderCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LinearLayout reminder=(LinearLayout) getView().findViewById(R.id.remainder_expandable);
-                if(getView().getVisibility()==View.GONE){
+                if(reminder.getVisibility()==View.GONE){
                     reminder.setVisibility(View.VISIBLE);
                 }
                 else {
