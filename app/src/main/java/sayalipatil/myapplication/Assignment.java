@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +18,11 @@ import android.view.ViewGroup;
 
 public class Assignment extends Fragment{
 
-
+    String prn="116A1056";
     public Assignment() {
         // Required empty public constructor
     }
-
+    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,8 +30,28 @@ public class Assignment extends Fragment{
         return inflater.inflate(R.layout.fragment_assignment,null);
     }
 
+    FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.upload);
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(prn=="116A1056") {
+            fab.setVisibility(View.VISIBLE);
+            fab.setOnClickListener(new View.OnClickListener() {
+
+
+                @Override
+                public void onClick(View view) {
+                    Fragment fragment=new UploadAssignments();
+
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.assignFragment, fragment);
+
+                    fragmentTransaction.commit();
+                }
+            });
+        }
+
     }
 }

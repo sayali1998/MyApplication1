@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,25 +36,19 @@ public class Calendar extends Fragment {
         crnt_date = (TextView)view.findViewById(R.id.crnt_date);
         sbmn_date = (TextView)view.findViewById(R.id.sbmn_date);
         rem_date = (TextView)view.findViewById(R.id.rem_date);
+        Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
+        reminderCard.setVisibility(View.INVISIBLE);
+        Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
+
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                crnt_date.setText("Current Date:-"+dayOfMonth+" / "+month+" / "+year);
-                sbmn_date.setText("Dead line :- Something just like this dooodooodooo");
-                rem_date.setText("Reminder:-Submission  Date :)LOL hahahaha :) ");
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int dayOfMonth, int month) {
+                reminderCard.setVisibility(View.VISIBLE);
+                crnt_date.setText("Current Date:-"+dayOfMonth+"/"+month+"/"+year);
+                sbmn_date.setText("Two Days Left");
+                rem_date.setText("Reminder:Please collect your Cards");
             }
         });
-//        reminderCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                LinearLayout reminder=(LinearLayout) getView().findViewById(R.id.remainder_expandable);
-//                if(reminder.getVisibility()==View.GONE){
-//                    reminder.setVisibility(View.VISIBLE);
-//                }
-//                else {
-//                    reminder.setVisibility(View.GONE);
-//                }
-//            }
-//        });
     }
 }

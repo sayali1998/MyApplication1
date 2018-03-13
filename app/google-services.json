@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "486466902824",
+    "firebase_url": "https://classroomapp-afec8.firebaseio.com",
+    "project_id": "classroomapp-afec8",
+    "storage_bucket": "classroomapp-afec8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486466902824:android:8dfa91f3d8ac91c4",
+        "android_client_info": {
+          "package_name": "sayalipatil.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486466902824-78qk3hir3sl5pfh9g076oea36v8t6rfj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sayalipatil.myapplication",
+            "certificate_hash": "146e724e67b6d748f0c99b5041d4b6ae698c1a56"
+          }
+        },
+        {
+          "client_id": "486466902824-ndu3ghste0epq2jkd9r2vfflqrqj08gk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhY9BovHIDxU7tKiCf2Jjl63tXzscRBq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486466902824-ndu3ghste0epq2jkd9r2vfflqrqj08gk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
