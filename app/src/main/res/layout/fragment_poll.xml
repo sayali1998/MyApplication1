@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="50dp"
+    android:background="@drawable/background"
     android:paddingHorizontal="10dp"
     tools:context="sayalipatil.myapplication.Poll">
 

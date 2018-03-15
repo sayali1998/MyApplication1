@@ -20,6 +20,7 @@ public class Calendar extends Fragment {
 
     CalendarView calendarView;
     TextView crnt_date,sbmn_date,rem_date;
+    TextView displayDay;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +37,7 @@ public class Calendar extends Fragment {
         crnt_date = (TextView)view.findViewById(R.id.crnt_date);
         sbmn_date = (TextView)view.findViewById(R.id.sbmn_date);
         rem_date = (TextView)view.findViewById(R.id.rem_date);
+        displayDay=(TextView)view.findViewById(R.id.displayDay);
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
         reminderCard.setVisibility(View.INVISIBLE);
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
@@ -45,7 +47,7 @@ public class Calendar extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int dayOfMonth, int month) {
                 reminderCard.setVisibility(View.VISIBLE);
-                crnt_date.setText("Current Date:-"+dayOfMonth+"/"+month+"/"+year);
+                displayDay.setText(dayOfMonth+" "+month+" "+year);
                 sbmn_date.setText("Two Days Left");
                 rem_date.setText("Reminder:Please collect your Cards");
             }
