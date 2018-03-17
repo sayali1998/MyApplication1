@@ -15,12 +15,18 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Calendar extends Fragment {
 
     CalendarView calendarView;
     TextView crnt_date,sbmn_date,rem_date;
     TextView displayDay;
+    String date=" ";
+    static String month=" ";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,15 +35,51 @@ public class Calendar extends Fragment {
         return inflater.inflate(R.layout.fragment_calendar, container, false);
     }
 
+    public void findMonth(int mn)
+    {
+        switch(mn)
+        {
+            case 0: month="January";
+                break;
+            case 1:month="February";
+                break;
+            case 2:month="March";
+                break;
+            case 3:month="April";
+                break;
+            case 4:month="May";
+                break;
+            case 5:month="June";
+                break;
+            case 6:month="July";
+                break;
+            case 7: month="August";
+                break;
+            case 8:month="September";
+                break;
+            case 9:month="October";
+                break;
+            case 10:month="November";
+                break;
+            case 11:month="December";
+                break;
+        }
+    }
+
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final CardView reminderCard=(CardView) getView().findViewById(R.id.reminder);
+       final CardView reminderCard=(CardView) getView().findViewById(R.id.reminder);
         calendarView = (CalendarView) view.findViewById(R.id.calender);
         crnt_date = (TextView)view.findViewById(R.id.crnt_date);
         sbmn_date = (TextView)view.findViewById(R.id.sbmn_date);
-        rem_date = (TextView)view.findViewById(R.id.rem_date);
         displayDay=(TextView)view.findViewById(R.id.displayDay);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMMM-yyyy");
+        date=simpleDateFormat.format(new Date());
+        displayDay.setText(date);
+        rem_date = (TextView)view.findViewById(R.id.rem_date);
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
         reminderCard.setVisibility(View.INVISIBLE);
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
@@ -45,12 +87,15 @@ public class Calendar extends Fragment {
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int dayOfMonth, int month) {
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int mnth, int dayOfMonth) {
                 reminderCard.setVisibility(View.VISIBLE);
-                displayDay.setText(dayOfMonth+" "+month+" "+year);
+                findMonth(mnth);
+                displayDay.setText(" "+dayOfMonth+"-"+month+"-"+year);
                 sbmn_date.setText("Two Days Left");
                 rem_date.setText("Reminder:Please collect your Cards");
             }
+
         });
+
     }
 }

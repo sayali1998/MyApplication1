@@ -8,10 +8,10 @@
     tools:context="sayalipatil.myapplication.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
+    <ScrollView
         android:id="@+id/first"
         android:background="@drawable/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </FrameLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

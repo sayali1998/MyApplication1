@@ -22,7 +22,6 @@ public class Assignment extends Fragment{
     public Assignment() {
         // Required empty public constructor
     }
-    Toolbar toolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
