@@ -15,9 +15,13 @@ import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class Calendar extends Fragment {
 
@@ -26,6 +30,8 @@ public class Calendar extends Fragment {
     TextView displayDay;
     String date=" ";
     static String month=" ";
+    private boolean isFirebaseSelected;
+    private DatabaseReference databaseReference;
 
 
     @Override
@@ -66,7 +72,12 @@ public class Calendar extends Fragment {
         }
     }
 
+    private void connectFirebase(){
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        databaseReference=database.getReference("/Calendar");
 
+
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -83,7 +94,7 @@ public class Calendar extends Fragment {
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
         reminderCard.setVisibility(View.INVISIBLE);
         Log.d("Boolean",String.valueOf(reminderCard.getVisibility()));
-
+        connectFirebase();
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
