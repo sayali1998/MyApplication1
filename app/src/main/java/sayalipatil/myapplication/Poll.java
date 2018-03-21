@@ -90,6 +90,7 @@ public class Poll extends Fragment {
             @Override
             public void onClick(View view) {
                 if(radioButton1.isChecked()){
+
                     databaseReference.child("/Poll/upvote").setValue(upvote+1);
                 }
                 if (radioButton2.isChecked()){
