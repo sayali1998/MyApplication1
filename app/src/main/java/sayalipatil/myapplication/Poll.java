@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +25,9 @@ public class Poll extends Fragment {
     private DatabaseReference databaseReference;
     private int upvote;
     private int downvote;
-
+    RadioButton radioButton1;
+    RadioButton radioButton2;
+    Button button;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,12 +67,13 @@ public class Poll extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         connectFirebase();
-        final RadioButton radioButton2=(RadioButton) getView().findViewById((R.id.radioButton2));
-        final RadioButton radioButton1=(RadioButton) getView().findViewById(R.id.radioButton1);
+        radioButton2=(RadioButton) getView().findViewById((R.id.radioButton2));
+        radioButton1=(RadioButton) getView().findViewById(R.id.radioButton1);
         radioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!(radioButton1.isChecked()) ){
+                if((radioButton1.isChecked()) ){
+                    Toast.makeText(getContext(),"Yes is Checked",Toast.LENGTH_LONG).show();
                     radioButton1.setChecked(true);
                     radioButton2.setChecked(false);
                 }
@@ -78,14 +82,15 @@ public class Poll extends Fragment {
         radioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!(radioButton2.isChecked())){
+                if((radioButton2.isChecked())){
+                    Toast.makeText(getContext(),"No is Checked",Toast.LENGTH_LONG);
                     radioButton2.setChecked(true);
                     radioButton1.setChecked(false);
 
                 }
             }
         });
-        Button button=(Button) getView().findViewById(R.id.submit);
+        button=(Button) getView().findViewById(R.id.submit);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

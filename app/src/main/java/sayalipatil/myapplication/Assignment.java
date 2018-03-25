@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 public class Assignment extends Fragment{
 
     String prn="116A1056";
+    FloatingActionButton fab;
     public Assignment() {
         // Required empty public constructor
     }
@@ -29,28 +30,27 @@ public class Assignment extends Fragment{
         return inflater.inflate(R.layout.fragment_assignment,null);
     }
 
-    FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.upload);
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(prn=="116A1056") {
-            fab.setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-
-
-                @Override
-                public void onClick(View view) {
-                    Fragment fragment=new UploadAssignments();
-
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.assignFragment, fragment);
-
-                    fragmentTransaction.commit();
-                }
-            });
-        }
+        fab = (FloatingActionButton) view.findViewById(R.id.upload);
+//        if(prn=="116A1056") {
+//            fab.setVisibility(View.VISIBLE);
+//            fab.setOnClickListener(new View.OnClickListener() {
+//
+//
+//                @Override
+//                public void onClick(View view) {
+//                    Fragment fragment=new UploadAssignments();
+//
+//                    FragmentManager fragmentManager=getFragmentManager();
+//                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+//                    fragmentTransaction.replace(R.id.assignFragment, fragment);
+//
+//                    fragmentTransaction.commit();
+//                }
+//            });
+//        }
 
     }
 }
